@@ -16,6 +16,10 @@ if (reticulate::py_module_available("torch")) {
 }
 
 
+torch_version <- function() {
+  torch$`__version__`
+}
+
 
 tensor_logical_and <- function(x, y) {
     x <- r_to_py(x$numpy())
@@ -103,6 +107,12 @@ skip_if_no_python <- function(verbose = FALSE) {
   if (!reticulate::py_available())
     #if (verbose) skip("Python not available for testing") else skip()
     skip("Python not available for testing")
+}
+
+
+skip_if_no_cuda <- function(verbose = FALSE) {
+  if (!torch$cuda$is_available())
+    skip("CUDA not available")
 }
 
 

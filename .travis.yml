@@ -6,15 +6,17 @@ language: R
 
 r:
  - 4.0.2
- - 3.6.3
+ # - 3.6.3
  # - 3.5.3
  # - 3.4.3
 
 warnings_are_errors: false
 
 os:
-  - linux
+#  - linux
   - osx
+
+osx_image: xcode12.5  
 
 # # -- this worked before --
 # env:
